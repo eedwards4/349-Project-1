@@ -12,7 +12,7 @@ public:
     Ship(int, int, int);
     bool canTravel(int);
 private:
-    int speed, fuel, rate; // T(top speed) Q(fuel) R(rate of consumption / hour)
+    int speed, fuel, conRate; // T(top speed) Q(fuel) R(rate of consumption / hour)
 };
 
 
