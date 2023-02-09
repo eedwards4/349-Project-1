@@ -17,5 +17,5 @@ Ship::Ship(int newSpeed, int newFuel, int newRate) {
 }
 
 bool Ship::canTravel(int distance) {
-    return (fuel * (conRate * speed) >= distance); //can we reach the distance with our speed and fuel left?
+    return ((float)(fuel * speed) / conRate) >= distance; //can we reach the distance with our speed and fuel left?
 }
