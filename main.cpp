@@ -6,12 +6,16 @@
 
 using namespace std;
 
-int main(){
-    int cases; int numships, distance, t1, t2, t3, avbShips = 0; string line;
+int main(int argc, const char* argv[]) {
+    int cases; int numships, distance, t1, t2, t3, avbShips = 0; string line, testLine; bool debugOn = argv[1];
+    int correctCount = 0;
     vector<Ship> ships;
-    fstream file("test.txt");
+    fstream file("testinput_P1.txt");
+    fstream testOutFile("testoutput_P1.txt");
+
     getline(file, line);
     cases = stoi(line);
+
     if (file.is_open()) {
         for (int i = 0; i < cases; i++) {
             getline(file, line);
@@ -32,10 +36,48 @@ int main(){
             for (Ship x : ships){
                 avbShips += x.canTravel(distance);
             }
-            cout << avbShips << endl;
+            
+            if (debugOn) {
+                getline(testOutFile, testLine);
+                if (testOutFile.is_open()) {
+                    if (atoi(argv[1]) == 1) {
+                        if (stoi(testLine) == avbShips) {
+                            correctCount++;
+                        }
+                    }
+                    else if (atoi(argv[1]) == 2) {
+                        if (stoi(testLine) != avbShips) {
+                            cout << "First discrepancy found in case "
+                            << ++correctCount << ". " << avbShips << " available ships "
+                            << "were calculated, but " << testLine << " ships "
+                            << "were available.\n";
+                        }
+                        else {
+                            correctCount++;
+                        }
+                        return 1;
+                    }
+                    else {
+                        stoi(testLine) == avbShips ? cout << '.' << endl : cout << "failure" << endl;
+                    }
+                }
+            }
+            else {
+                cout << avbShips << endl;
+            }
             avbShips = 0;
         }
-        file.close();
-    }
 
+        if (debugOn) {
+            if (atoi(argv[1]) == 1) {
+                cout << (float)(correctCount)/cases << "% success rate with "
+                << correctCount << '/' << cases << " cases matching output.\n";
+            }
+            testOutFile.close();
+        }
+
+        file.close();
+        return 0;
+    }
+    
 }
