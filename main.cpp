@@ -51,11 +51,11 @@ int main(int argc, const char* argv[]) {
                             << ++correctCount << ". " << avbShips << " available ships "
                             << "were calculated, but " << testLine << " ships "
                             << "were available.\n";
+                            return 1;
                         }
                         else {
                             correctCount++;
                         }
-                        return 1;
                     }
                     else {
                         stoi(testLine) == avbShips ? cout << '.' << endl : cout << "failure" << endl;
