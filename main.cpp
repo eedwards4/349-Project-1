@@ -18,7 +18,7 @@ int main(int argc, const char* argv[]) {
     putenv("MYOUTPUT=textfiles/output.txt");
     putenv("TESTOUT=textfiles/testoutput_P1.txt");
 
-    fstream inFile(getenv("MYINPUT")), outFile(getenv("MYOUTPUT")), testOutFile(getenv("TESTOUT"));
+    fstream inFile(getenv("MYINPUT")), outFile(getenv("MYOUTPUT")), debugOut(getenv("TESTOUT"));
 
     getline(inFile, line);
     cases = stoi(line);
@@ -45,8 +45,8 @@ int main(int argc, const char* argv[]) {
             }
             
             if (debugOn) {
-                getline(testOutFile, testLine); // read first line of comparison file
-                if (testOutFile.is_open()) {
+                getline(debugOut, testLine); // read first line of comparison file
+                if (debugOut.is_open()) {
                     if (atoi(argv[1]) == 1) { // test giving percentage success
                         if (stoi(testLine) == avbShips) {
                             correctCount++;
@@ -68,12 +68,21 @@ int main(int argc, const char* argv[]) {
                         stoi(testLine) == avbShips ? cout << '.' << endl : cout << "failure" << endl;
                     }
                 }
+                avbShips = 0; //set to 0 here if debugging
             }
             else { // behavior when running normally
-                //outputToFile(avbShips, )
-                cout << avbShips << endl;
+                
+                if (outputToFile(avbShips, outFile)) {
+                    avbShips = 0;
+                }
+                else {
+                    cout << "Something went wrong while writing to output.txt\n";
+                    return 1;
+                }
+                
+                //cout << avbShips << endl; -- fine to delete
             }
-            avbShips = 0;
+            //avbShips = 0; -- fine to delete
         }
 
         if (debugOn) { // output for percent success debug option
@@ -81,7 +90,7 @@ int main(int argc, const char* argv[]) {
                 cout << (float)(correctCount)/cases << "% success rate with "
                 << correctCount << '/' << cases << " cases matching output.\n";
             }
-            testOutFile.close();
+            debugOut.close();
         }
 
         inFile.close();
@@ -95,7 +104,7 @@ int main(int argc, const char* argv[]) {
 }
 
 
-bool outputToFile(int avbShips, fstream& os) { //untested framework for output to file
+bool outputToFile(int avbShips, fstream& os) { // writes output to a file
     if (os.is_open()) {
         os << avbShips << endl;
         return true;
