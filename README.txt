@@ -14,8 +14,8 @@ The program will return the number of ships capable of reaching the expedition s
 
 To use debug features, simply use "debug" as your filename argument. The program will then query you for a file to
 test it's output against. After that the program will query you for the file you want to analyze, and then it will
-analyze the file. If there are any descrepencies between the two outputs, the program will add a line below the output
+analyze the file. If there are any discrepancies between the two outputs, the program will add a line below the output
 in question stating something like the following: "WARN: 61 != 111".
 
-Files must either be in the same folder as the program excecutable or be dictated as a full filepath
+Files must either be in the same folder as the program executable or be dictated as a full filepath
 [E.G /home/myFile.txt]

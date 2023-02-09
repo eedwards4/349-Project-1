@@ -1,3 +1,8 @@
+/*
+Joe Coon, Ethan Edwards
+Ship Deployer Program
+Project completion: 2/9/2023
+ */
 #include <iostream>
 #include <fstream>
 #include <cstdlib>

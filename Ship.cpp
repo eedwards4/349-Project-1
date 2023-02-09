@@ -1,6 +1,8 @@
-//
-// Created by student on 2/3/23.
-//
+/*
+Joe Coon, Ethan Edwards
+Ship Deployer Program
+Project completion: 2/9/2023
+ */
 
 #include "Ship.h"
 
