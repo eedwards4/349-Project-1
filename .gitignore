@@ -30,3 +30,14 @@
 *.exe
 *.out
 *.app
+
+# Cmake
+cmake-build-debug/
+.idea/
+
+# My Stuff
+.vscode/
+obj/
+Makefile
+Ship.h
+CS349_Project_1

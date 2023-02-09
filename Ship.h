@@ -2,8 +2,8 @@
 // Created by student on 2/3/23.
 //
 
-#ifndef INC_349_PROJECT_1_SHIP_H
-#define INC_349_PROJECT_1_SHIP_H
+#ifndef SHIP_H
+#define SHIP_H
 
 
 class Ship {
@@ -16,4 +16,4 @@ private:
 };
 
 
-#endif //INC_349_PROJECT_1_SHIP_H
+#endif
