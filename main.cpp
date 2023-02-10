@@ -15,7 +15,7 @@ int main(int argc, const char* argv[]){
     // Define variables
     int cases, numships, distance, t1, t2, t3, avbShips = 0;
     string line, fname, debugf, outf;
-    bool outToFile = false, debug = false;
+    bool outToFile = false, debug = false, write = false;
     vector<Ship> ships;
     // Sanity check
     if (argc == 0) {cout << "This program requires 1 filename or filepath as an argument."; return 0;}
@@ -25,7 +25,7 @@ int main(int argc, const char* argv[]){
     fstream debugFile;
     fstream outFile;
 
-    if (argc == 3){outFile.open(argv[2]); outToFile = true;}
+    if (argc == 3){outf = argv[2]; outFile.open(outf); outToFile = true;}
 
     if (fname == "debug"){ // Debug code. ONLY CALLED WHEN "debug" used as initial filename
         cout << "Enter name for file to check against:";
@@ -39,7 +39,10 @@ int main(int argc, const char* argv[]){
         file.open(fname);
         debug = true;
     }
-    // End file readin
+    // End file info readin
+    // File checks
+    if (debug && !debugFile.is_open()){cout << "Debug file " << debugf << " not found. Please confirm that the file exists and is a .txt file." << endl; return 0;}
+    if (outToFile &&  !outFile.is_open()){cout << "Output file " << outf << " not found. Please confirm that the file exists AND that you are sure you want to overwrite it's contents." << endl; return 0;}
     if (file.is_open()) {
         getline(file, line);
         cases = stoi(line);
@@ -63,7 +66,13 @@ int main(int argc, const char* argv[]){
                 avbShips += x.canTravel(distance);
             }
             cout << avbShips << endl;
-            if (outToFile){outFile << avbShips << endl;} // Send to file (if needed)
+            // Send to file (if needed)
+            if (outToFile && !write){
+                cout << "Please confirm that you would like to write to " << outf << endl;
+                cin >> line;
+                if (line == "y" || line == "Y" || line == "yes" || line == "Yes"){write = true;}
+            }
+            if (write){outFile << avbShips << endl;}
             if (debug){getline(debugFile, line); if (stoi(line) != avbShips){cout << "WARN: " << stoi(line) << " != " << avbShips << endl;}} // Super mega debug line
             avbShips = 0; // Reset
             ships.clear();
