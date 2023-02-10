@@ -6,13 +6,13 @@ Project completion: 2/9/2023
 
 #include "Ship.h"
 
-Ship::Ship() {
+Ship::Ship() { // Default constructor
     speed = 0;
     fuel = 0;
     conRate = 0;
 }
 
-Ship::Ship(int newSpeed, int newFuel, int newRate) {
+Ship::Ship(int newSpeed, int newFuel, int newRate) { // THIS SHOULD ALWAYS BE USED
     speed = newSpeed;
     fuel = newFuel;
     conRate = newRate;
