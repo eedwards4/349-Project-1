@@ -9,13 +9,21 @@
 +
 ============================
 
-To use this program, simply run the program with your desired file as an argument [E.G fuelAnalyzer myFile.txt].
+To use this program, simply run the program with your desired file as an argument [E.G shipDeployer myFile.txt].
 The program will return the number of ships capable of reaching the expedition site in question.
 
-To use debug features, simply use "debug" as your filename argument. The program will then query you for a file to
-test it's output against. After that the program will query you for the file you want to analyze, and then it will
-analyze the file. If there are any discrepancies between the two outputs, the program will add a line below the output
-in question stating something like the following: "WARN: 61 != 111".
+If you would like output to be written to a file, simply include the file as a second argument when you run the program
+[E.G shipDeployer myFile.txt outputFile.txt]
+
+To use debug features, simply use "debug" as your filename argument. The program will then guide you through the debug
+input process.
+<INSTRUCTIONS FOR READING DEBUG OUTPUT>
+Example output:
+32 <-- Normal output, matches debug file
+225
+WARN: 534 != 225 <-- Discrepancy found
+55
+87
 
 Files must either be in the same folder as the program executable or be dictated as a full filepath
 [E.G /home/myFile.txt]
