@@ -1,12 +1,10 @@
 file(REMOVE_RECURSE
-  "349_Project_1.exe"
-  "349_Project_1.exe.manifest"
+  "349_Project_1"
   "349_Project_1.pdb"
-  "CMakeFiles/349_Project_1.dir/Ship.cpp.obj"
-  "CMakeFiles/349_Project_1.dir/Ship.cpp.obj.d"
-  "CMakeFiles/349_Project_1.dir/main.cpp.obj"
-  "CMakeFiles/349_Project_1.dir/main.cpp.obj.d"
-  "lib349_Project_1.dll.a"
+  "CMakeFiles/349_Project_1.dir/Ship.cpp.o"
+  "CMakeFiles/349_Project_1.dir/Ship.cpp.o.d"
+  "CMakeFiles/349_Project_1.dir/main.cpp.o"
+  "CMakeFiles/349_Project_1.dir/main.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

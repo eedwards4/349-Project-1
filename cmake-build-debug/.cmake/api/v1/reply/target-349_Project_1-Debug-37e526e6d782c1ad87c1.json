@@ -2,10 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "349_Project_1.exe"
-		},
-		{
-			"path" : "349_Project_1.pdb"
+			"path" : "349_Project_1"
 		}
 	],
 	"backtrace" : 1,
@@ -38,7 +35,10 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -fdiagnostics-color=always"
+					"fragment" : "-g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk -fcolor-diagnostics"
+				},
+				{
+					"fragment" : "-std=gnu++17"
 				}
 			],
 			"language" : "CXX",
@@ -69,16 +69,12 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
-			},
-			{
-				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
-				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "349_Project_1",
-	"nameOnDisk" : "349_Project_1.exe",
+	"nameOnDisk" : "349_Project_1",
 	"paths" : 
 	{
 		"build" : ".",
